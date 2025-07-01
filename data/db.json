@@ -1,0 +1,24 @@
+{
+    "movies": [{
+            "title": "Commando",
+            "body": "Action & Adventure Movie",
+            "Actor": "Arnold",
+            "year": 2010,
+            "id": 1
+        },
+        {
+            "title": "Delta Force",
+            "body": "Action & Adventure Movie",
+            "Actor": "Chuck Noris",
+            "year": 2012,
+            "id": 2
+        },
+        {
+            "title": "Predator",
+            "body": "Action & Adventure Movie",
+            "Actor": "Chuck Noris",
+            "year": 2015,
+            "id": 3
+        }
+    ]
+}
