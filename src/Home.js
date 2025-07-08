@@ -1,29 +1,19 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import { use } from 'react'
 import MovieList from './MovieList'
+import loading from './loading.gif'
+import useFetch from './useFetch'
 
 const Home = () => {
-    const [movies, setMovie] = useState()
 
-    useEffect(() => {
-        fetch('http://localhost:8000/movies')
-            .then((res) => {
-                return res.json()
-            })
-            .then((data) =>{ 
-                console.log(data)
-                setMovie(data)
-            })
-            .catch((err) => {
-                console.log(err.message)
-            })
-    }, []);
+    const{data: movies, setIsPending, error} = useFetch('http://localhost:8000/movies')
+
+   
 
     return ( 
         <div className = 'home' >
-        
-        <MovieList movies = { movies } title = "Movies Blog"/>
-
+            {error && <div>{error}</div>}
+            {setIsPending && <div className='image'><img src={loading} alt="Loading..."/></div>}
+            {movies && <MovieList movies = { movies } title = "Movies Blog"/>}
         </div>
     )
 }
